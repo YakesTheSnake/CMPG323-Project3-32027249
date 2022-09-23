@@ -4,17 +4,19 @@ using System;
 
 namespace DeviceManagement_WebApp.Repository
 {
-    public interface IGenericRepository<C> where C : class
+    public interface IGenericRepository<T> where T : class
     {
-        C GetById(Guid id);
-        IEnumerable<C> GetAll();
-        IEnumerable<C> Find(Expression<Func<C,bool>> expression);
-        bool Exists(Expression<Func<C,bool>> expression);
-        void add(C entity);
-        void addrange(IEnumerable<C> entities);
-        void Update(C entity);
-        void RemoveRange(IEnumerable<C> entities);
-        void remove(C entity);
+        T GetById(Guid id);
+        IEnumerable<T> GetAll();
+        IEnumerable<T> Find(Expression<Func<T,bool>> expression);
+        
+        void add(T entity);
+        void addrange(IEnumerable<T> entities);
+       
+        void Update(T entity);
+        void RemoveRange(IEnumerable<T> entities);
+        bool Exists(Expression<Func<T, bool>> expression);
+        void remove(T entity);
         void Save();
         
     }
