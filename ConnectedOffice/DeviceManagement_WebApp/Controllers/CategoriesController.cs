@@ -58,13 +58,12 @@ namespace DeviceManagement_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,CategoryDescription,DateCreated")] Category category)
         {
-            if(ModelState.IsValid)
-            {
+            
                 category.CategoryId = Guid.NewGuid();
                 _categoryRepository.add(category);
                 _categoryRepository.Save();
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(category);
         }
 

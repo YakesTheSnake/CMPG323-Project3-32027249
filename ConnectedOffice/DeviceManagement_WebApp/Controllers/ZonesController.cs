@@ -58,13 +58,12 @@ namespace DeviceManagement_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ZoneId,ZoneName,ZoneDescription,DateCreated")] Zone zone)
         {
-            if (ModelState.IsValid)
-            {
+          
                zone.ZoneId = Guid.NewGuid();
                 _zoneRepository.add(zone);
                 _zoneRepository.Save();
                 return RedirectToAction(nameof(Index));
-            }
+            
             return View(zone);
         }
 
