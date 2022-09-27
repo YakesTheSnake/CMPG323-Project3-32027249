@@ -24,8 +24,8 @@ namespace DeviceManagement_WebApp.Controllers
         // GET: Devices
         public async Task<IActionResult> Index()
         {
-            var connectedOfficeContext = _deviceRepository.GetMostRecentDevice();
-            return View( connectedOfficeContext());
+            var connectedOfficeContext = _deviceRepository.GetAllDevices();
+            return View( connectedOfficeContext);
         }
 
         // GET: Devices/Details/5
@@ -36,10 +36,7 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
 
-            var device = await _context.Device
-                .Include(d => d.Category)
-                .Include(d => d.Zone)
-                .FirstOrDefaultAsync(m => m.DeviceId == id);
+            var device = _deviceRepository.GetMostRecentDevice();
             if (device == null)
             {
                 return NotFound();
