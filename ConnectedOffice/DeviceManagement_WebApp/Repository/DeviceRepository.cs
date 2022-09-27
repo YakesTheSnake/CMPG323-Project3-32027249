@@ -42,14 +42,6 @@ namespace DeviceManagement_WebApp.Repository
             return _context.Category;
         }
 
-        public IEnumerable<Device> SortDevices(Expression<Func<Device, string>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Device FindDevice(Expression<Func<Device, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

@@ -17,8 +17,6 @@ namespace DeviceManagement_WebApp.Repository
 
         public IEnumerable<Category> GetCategories();
 
-        public IEnumerable<Device> SortDevices(Expression<Func<Device, String>> expression);
-
-        public Device FindDevice(Expression<Func<Device, bool>> expression);  
+         
     }
 }
